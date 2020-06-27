@@ -60,9 +60,9 @@ spring:
             client-secret: e729b79d-4280-4ce4-bcf3-4fd6321bc491
             scope: openid
             provider: keycloak
-            authorization-grant-type: authorization_code        provider:          keycloak:
+            authorization-grant-type: client_credentials        provider:          keycloak:
             authorization-uri: http://85.146.20.136:8080/auth/realms/DreamBikeKeycloak/protocol/openid-connect/auth
-            token-uri: http://85.146.20.136:8080/auth/realms/DreamBikeKeycloak/protocol/openid-connect/token
+            token-uri: http://85.146.20.136:8080/auth/realms/DreamBikeKeycloak/protocol/openid-connect/token/introspect
             user-info-uri: http://85.146.20.136:8080/auth/realms/DreamBikeKeycloak/protocol/openid-connect/userinfo
             jwk-set-uri: http://85.146.20.136:8080/auth/realms/DreamBikeKeycloak/protocol/openid-connect/certs
             user-info-authentication-method: header
