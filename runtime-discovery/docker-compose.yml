@@ -25,7 +25,7 @@ services:
       - "registry"
   docking:
     image: dreambike/docking:latest
-    container_name: docking
+#    container_name: docking
     expose:
       - "8764"
     depends_on:
