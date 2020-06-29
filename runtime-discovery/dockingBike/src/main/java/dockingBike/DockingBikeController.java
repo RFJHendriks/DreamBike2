@@ -1,11 +1,12 @@
 package dockingBike;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,22 @@ public class DockingBikeController {
 	@GetMapping("getDockingId/")
 	public int getDockingId(@RequestParam int bikeId) {
 		return this.bikeService.getByBikeId(bikeId).getDocking().getDockingId();
+	}
+
+	@GetMapping("getAllDockingId")
+	public List<DockingBikeDTO> getAllDockingIds() {
+		List<DockingBikeDTO> dockingBike = new ArrayList<DockingBikeDTO>();
+		List<Docking> dockings = dockingService.getAll();
+		dockings.forEach(docking -> {
+			Set<Bike> bikes = this.dockingService.getByDockingId(docking.getDockingId()).getBikes();
+			bikes.forEach(bike -> {
+				DockingBikeDTO dbDTO = new DockingBikeDTO();
+				dbDTO.setBikeId(bike.getBikeId());
+				dbDTO.setDockingId(docking.getDockingId());
+				dockingBike.add(dbDTO);
+			});
+		});
+		return dockingBike;
 	}
 
 	@GetMapping("getBikeIds/")

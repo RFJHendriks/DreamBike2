@@ -1,5 +1,7 @@
 package dockingBike;
 
+import java.util.Set;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -7,5 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface DockingRepository extends JpaRepository<Docking, Integer> {
 
 	Docking findByDockingId(int dockingId);
+
+	Set<Docking> getAll();
 
 }

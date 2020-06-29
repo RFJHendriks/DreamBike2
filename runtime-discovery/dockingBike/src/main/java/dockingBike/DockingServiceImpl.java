@@ -1,5 +1,7 @@
 package dockingBike;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,11 @@ public class DockingServiceImpl implements DockingService {
 	@Override
 	public void save(Docking docking) {
 		dockingRepository.save(docking);
+	}
+
+	@Override
+	public List<Docking> getAll() {
+		return dockingRepository.findAll();
 	}
 
 }
