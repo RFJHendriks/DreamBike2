@@ -29,8 +29,8 @@ public class DockingBikeController {
 		return this.bikeService.getByBikeId(bikeId).getDocking().getDockingId();
 	}
 
-	@GetMapping("getAllDockingId")
-	public List<DockingBikeDTO> getAllDockingIds() {
+	@GetMapping("getAll")
+	public List<DockingBikeDTO> getAll() {
 		List<DockingBikeDTO> dockingBike = new ArrayList<DockingBikeDTO>();
 		List<Docking> dockings = dockingService.getAll();
 		dockings.forEach(docking -> {
