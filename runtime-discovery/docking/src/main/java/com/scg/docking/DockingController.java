@@ -23,16 +23,6 @@ public class DockingController {
 		this.dockingService = dockingService;
 	}
 
-	@GetMapping("/")
-	public String home() {
-		return "hello world";
-	}
-
-	@GetMapping("test")
-	public String getTest() {
-		return "test";
-	}
-
 	@GetMapping("getAll")
 	public List<DockingStation> getAllDockingStations() {
 //		return this.dockingService.getAll();
@@ -44,20 +34,6 @@ public class DockingController {
 			}
 		});
 		return notDeleted;
-
-	}
-
-//	@GetMapping("getNotDeleted")
-//	public List<DockingStation> getNotDeleted() {
-//		return this.dockingService.getNotDeleted();
-//	}
-
-	@GetMapping("getOne")
-	public DockingStation getOneDockingStation() {
-		long id = 1;
-		DockingStation dock = this.dockingService.getOne(id);
-		System.out.println(dock.getName());
-		return dock;
 	}
 
 	@GetMapping("/fillDB")
