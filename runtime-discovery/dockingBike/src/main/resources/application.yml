@@ -13,6 +13,12 @@ spring:
     url: jdbc:mysql://www.rickhendriks.com:3306/S5Camping?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false
     username: S5Camping
     password: S5Camping
+  
+  security:
+    oauth2:
+        resourceserver:
+          jwt:
+            issuer-uri:  http://85.146.20.136:8080/auth/realms/DreamBikeKeycloak
 
 server:
   port: 8765
