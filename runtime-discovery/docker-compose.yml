@@ -38,7 +38,7 @@ services:
     depends_on:
       - "registry"
   angular-docker:
-     image: dreambike/angular-app:latest
+     image: dreambike/angular-app:prod
      container_name: angular-docker-container
      build: ./employeeapp
      ports:
