@@ -9,7 +9,7 @@ public class SecurityConfig {
 	@Bean
 	SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeExchange().pathMatchers("/**").permitAll().anyExchange().authenticated().and()
-				.oauth2ResourceServer().jwt();
+				.cors().and().oauth2ResourceServer().jwt();
 		return http.build();
 	}
 }
