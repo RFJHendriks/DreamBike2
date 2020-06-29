@@ -30,13 +30,6 @@ services:
       - "8764"
     depends_on:
       - "registry"
-  docking:
-    image: dreambike/docking:latest
-    container_name: docking2
-    expose:
-      - "8766"
-    depends_on:
-      - "registry"
   bikedocking:
     image: dreambike/bikedocking:latest
     container_name: bikedocking
